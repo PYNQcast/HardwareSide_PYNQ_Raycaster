@@ -10,8 +10,8 @@ A real-time Wolfenstein 3D-style DDA raycaster implemented in Verilog/SystemVeri
 
 ## Features
 
-- **DDA ray casting** — 640 rays/frame, Q6.12 fixed-point deltaDist via reciprocal LUT
-- **Wall texturing** — 32×32 RGB444 textures from BRAM `.mem` files
+- **DDA ray casting** — 640 rays/frame,
+- **Wall texturing** — 32×32 RGB textures from BRAM `.mem` files
 - **Sprite rendering** — camera-space inverse transform, restoring divider for screen projection, z-buffer occlusion
 - **HDMI output** — AXI4-Stream pixel pipeline through Digilent rgb2dvi at 640×480
 - **PS ↔ PL interface** — AXI BRAM controller for player position, angle, map, and sprite coordinates
