@@ -1,0 +1,48 @@
+# Vivado generated files
+**/*.jou
+**/*.log
+**/*.str
+**/*.debug
+
+# Project directories
+**/*.cache/
+**/*.hw/
+**/*.ip_user_files/
+**/*.runs/
+**/*.sim/
+**/*.tmp/
+**/*.gen/
+
+# Bitstream and implementation outputs
+**/*.bit
+**/*.ltx
+**/*.mcs
+
+# Export artifacts (share via GitHub Releases instead)
+**/*.xsa
+**/*.zip
+
+# IP generated files (keep .xci)
+**/*_stub.v
+**/*_stub.vhdl
+**/*_funcsim.v
+**/*_funcsim.vhdl
+
+# Vivado backup files
+**/*.bak
+**/*.backup.jou
+**/*.backup.log
+
+# Vivado project files (recreated by scripts/)
+**/*.xpr
+
+# Build directory (from create_project.tcl)
+build/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
