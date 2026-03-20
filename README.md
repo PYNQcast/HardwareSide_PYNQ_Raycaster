@@ -76,8 +76,8 @@ The repo contains **two Vivado projects** that work together:
 ### 1. Clone with submodule
 
 ```bash
-git clone --recursive https://github.com/louis574/pynq_raycaster.git
-cd pynq_raycaster
+git clone --recursive https://github.com/louis574/HardwareSide_PYNQ_Raycaster.git
+cd HardwareSide_PYNQ_Raycaster
 ```
 
 If you already cloned without `--recursive`:
@@ -87,15 +87,21 @@ git submodule update --init
 
 ### 2. Create the Vivado project
 
-```bash
-vivado -mode batch -source scripts/create_project.tcl
+1. Open **Vivado 2020.2**
+2. In the **Tcl Console** at the bottom, run:
+
+```tcl
+cd <path-to-repo>
+source scripts/create_project.tcl
 ```
+
+> **Note:** Use forward slashes in the path, not backslashes (e.g. `cd C:/Users/you/HardwareSide_PYNQ_Raycaster`).
 
 This builds into `build/` — the raycaster IP is already pre-packaged (`component.xml` is committed), so you only need to run the one script.
 
 ### 3. Generate bitstream
 
-1. Open `build/ray_caster.xpr` in Vivado
+1. Open `build/ray_caster.xpr` in Vivado (or it will already be open after step 2)
 2. **Generate Bitstream** (runs synthesis → implementation → bitstream)
 3. **File → Export → Export Hardware** (include bitstream)
 
@@ -105,20 +111,18 @@ Copy the `.bit` and `.hwh` files to the board. The raycaster starts rendering as
 
 ## Modifying the RTL
 
-If you edit any of the Verilog/SystemVerilog sources, you need to re-package the IP before rebuilding the system project:
+If you edit any of the Verilog/SystemVerilog sources, you need to re-package the IP before rebuilding the system project. In the Vivado Tcl Console:
 
-```bash
-# Step 1: re-package the raycaster IP
-vivado -mode batch -source scripts/package_ip.tcl
-
-# Step 2: recreate the system project with the updated IP
-vivado -mode batch -source scripts/create_project.tcl
+```tcl
+cd <path-to-repo>
+source scripts/package_ip.tcl
+source scripts/create_project.tcl
 ```
 
 ## Repository Structure
 
 ```
-pynq_raycaster/
+HardwareSide_PYNQ_Raycaster/
 ├── scripts/
 │   ├── create_project.tcl          # Creates system integration project
 │   └── package_ip.tcl              # Re-packages raycaster IP (after RTL edits)
