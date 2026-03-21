@@ -76,7 +76,7 @@ The repo contains **two Vivado projects** that work together:
 ### 1. Clone with submodule
 
 ```bash
-git clone --recursive https://github.com/louis574/HardwareSide_PYNQ_Raycaster.git
+git clone --recursive https://github.com/PYNQcast/HardwareSide_PYNQ_Raycaster.git
 cd HardwareSide_PYNQ_Raycaster
 ```
 
