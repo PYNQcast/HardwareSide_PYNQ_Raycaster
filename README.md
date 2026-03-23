@@ -111,10 +111,18 @@ Copy the `.bit` and `.hwh` files to the board. The raycaster starts rendering as
 
 ## Modifying the RTL
 
-If you edit any of the Verilog/SystemVerilog sources, you need to re-package the IP before rebuilding the system project. In the Vivado Tcl Console:
+When you open the block design in Vivado, the raycaster appears as a packaged IP block. Double-clicking it will show a "Re-customize IP" message — this is normal. The block design treats it as a black box with defined interfaces.
 
+To view or edit the actual Verilog/SystemVerilog source files, open them directly from:
+```
+ray_caster/raycaster_block_dev/raycaster_ip_development/raycaster_ip_development.srcs/sources_1/new/
+```
+
+This contains all the RTL modules (`ray_caster.sv`, `dda_main_body.v`, `sprite_caster.v`, etc.).
+
+If you make changes, you need to re-package the IP before rebuilding the system project. In the Vivado Tcl Console:
 ```tcl
-cd <path-to-repo>
+cd 
 source scripts/package_ip.tcl
 source scripts/create_project.tcl
 ```
